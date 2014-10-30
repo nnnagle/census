@@ -9,3 +9,7 @@
 
 # RStudio files
 .Rproj.user/
+
+# zipped files
+.zip
+.Rproj.user
