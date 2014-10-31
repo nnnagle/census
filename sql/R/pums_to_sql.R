@@ -55,6 +55,8 @@ sql.cmd <- sprintf('CREATE TABLE ACS12_5H (%s, PRIMARY KEY (SERIALNO));',
 dbGetQuery(conn, statement="DROP TABLE IF EXISTS ACS12_5H;")
 dbGetQuery(conn, statement=sql.cmd)
 dbGetQuery(conn, statement="CREATE INDEX ACS12_5H_st_idx ON ACS12_5H(ST);")
+dbGetQuery(conn, statement="CREATE INDEX ACS12_5H_puma00_idx ON ACS12_5H(PUMA00);")
+dbGetQuery(conn, statement="CREATE INDEX ACS12_5H_puma10_idx ON ACS12_5H(PUMA10);")
 
 
 # load in the pums files.
@@ -102,6 +104,9 @@ sql.cmd <- sprintf('CREATE TABLE ACS12_5P (%s, PRIMARY KEY (SERIALNO, SPORDER));
 dbGetQuery(conn, statement="DROP TABLE IF EXISTS ACS12_5P;")
 dbGetQuery(conn, statement=sql.cmd)
 dbGetQuery(conn, statement="CREATE INDEX ACS12_5P_st_idx ON ACS12_5P(ST);")
+dbGetQuery(conn, statement="CREATE INDEX ACS12_5p_puma00_idx ON ACS12_5p(PUMA00);")
+dbGetQuery(conn, statement="CREATE INDEX ACS12_5p_puma10_idx ON ACS12_5p(PUMA10);")
+
 
 
 # load in the pums files.
