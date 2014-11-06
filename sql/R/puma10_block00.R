@@ -1,6 +1,6 @@
 sql.loc <- '/usr/local/pgsql-9.3/bin/'
 
-system(sprintf('%spsql -U postgres -d tiger -c "DROP TABLE IF EXISTS puma10_block00"', 
+system(sprintf('%spsql -U postgres -d census -c "DROP TABLE IF EXISTS puma10_block00"', 
                sql.loc))
 
 sql.cmd <- sprintf('
@@ -13,7 +13,7 @@ CREATE TABLE puma10_block00(
   isect_area numeric
 );
 ')
-system(sprintf('%spsql -U postgres -d tiger -c "%s"', 
+system(sprintf('%spsql -U postgres -d census -c "%s"', 
                sql.loc, sql.cmd))
 
 
@@ -36,7 +36,7 @@ INSERT INTO puma10_block00(block00_statefp00, block00_countyfp00, block00_geoid,
   WHERE a.statefp00 NOT IN ('02', '15');
 ")
 cat(sql.cmd, file='run.sql')
-system(sprintf('%spsql -U postgres -d tiger -f run.sql', 
+system(sprintf('%spsql -U postgres -d census -f run.sql', 
                sql.loc, sql.cmd))
 
 
@@ -61,7 +61,7 @@ INSERT INTO puma10_block00(block00_statefp00, block00_countyfp00, block00_geoid,
   WHERE a.statefp00 = '02';
 ")
 cat(sql.cmd, file='run.sql')
-system(sprintf('%spsql -U postgres -d tiger -f run.sql', 
+system(sprintf('%spsql -U postgres -d census -f run.sql', 
                sql.loc, sql.cmd))
 
 
@@ -85,7 +85,7 @@ INSERT INTO puma10_block00(block00_statefp00, block00_countyfp00, block00_geoid,
   WHERE a.statefp00 = '15';
 ")
 cat(sql.cmd, file='run.sql')
-system(sprintf('%spsql -U postgres -d tiger -f run.sql', 
+system(sprintf('%spsql -U postgres -d census -f run.sql', 
                sql.loc, sql.cmd))
 
 
